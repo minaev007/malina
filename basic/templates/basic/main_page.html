@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">    <meta name = "format-detection" content = "telephone=no" />
+    {% load staticfiles %}
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.6.6/jquery.fullPage.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel='stylesheet' type='text/css' href="{% static 'basic/style.css' %}">
+    <title>Малина</title>  
+</head>
+<body>
+    <div id="fullpage">
+        <div class="section" id="section0">
+            <header>    
+                <a href="{% url 'basic:main_page' %}">
+                    <div class="logos">
+                        <p>Malina</p>
+                        <p>Студія краси</p>
+                    </div>
+                </a>
+            </header>
+
+            <div class="navigation">
+                <a href="{% url 'gallery:gallery_page' %}" class="first_ancor">
+                    <div class="buttons">
+                        Галерея
+                    </div>
+                </a>
+                <a href="{% url 'reviews:reviews_page' %}">
+                    <div class="buttons">
+                        Отзывы
+                    </div>
+                </a>
+                <a href="{% url 'promotion:promotion_page' %}">
+                    <div class="buttons">
+                        Акции
+                    </div>
+                </a>
+            </div>
+
+            <div class="my-viewport">
+                <ul class="my-slidewrapper" data-current="0">
+                    <li class="my-slide">
+                        <div>
+                            <p>Парикмахерские услуги</p><br />  
+                            <ul class="my-slide-style">
+                                {% for service in first_slide %} 
+                                <li><i class="fa fa-check-square-o" aria-hidden="true"></i>{{ service.name }}</li>                 
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        <img class="she" src="{% static 'basic/she.svg' %}" />
+                    </li>
+                    <li class="my-slide">
+                        <div>
+                            <p>Маникюрные услуги</p><br />  
+                            <ul class="my-slide-style">
+                                {% for service in second_slide %} 
+                                <li><i class="fa fa-check-square-o" aria-hidden="true"></i>{{ service.name }}</li>                 
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        <img class="dancing" src="{% static 'basic/dancing.svg' %}" />
+                    </li>
+                    <li class="my-slide">
+                        <div>
+                            <p>Косметология</p><br />  
+                            <ul class="my-slide-style">
+                                {% for service in third_slide %} 
+                                <li><i class="fa fa-check-square-o" aria-hidden="true"></i>{{ service.name }}</li>                 
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        <img class="lady" src="{% static 'basic/lady.svg' %}" />
+                    </li>
+                    <li class="my-slide">
+                        <div>
+                            <p>Услуги массажа</p><br />  
+                            <ul class="my-slide-style">
+                                {% for service in forth_slide %} 
+                                <li><i class="fa fa-check-square-o" aria-hidden="true"></i>{{ service.name }}</li>                 
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        <img class="girl" src="{% static 'basic/girl.svg' %}" />
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="section" id="section1">
+            <div class="location">
+                <a target="_blank" href="https://www.google.com.ua/maps/place/%D0%B2%D1%83%D0%BB%D0%B8%D1%86%D1%8F+%D0%A1%D1%83%D0%BB%D0%B5%D0%B9%D0%BC%D0%B0%D0%BD%D0%B0+%D0%A1%D1%82%D0%B0%D0%BB%D1%8C%D1%81%D1%8C%D0%BA%D0%BE%D0%B3%D0%BE,+28,+%D0%9A%D0%B8%D1%97%D0%B2/@50.4847207,30.605597,17z/data=!4m5!3m4!1s0x40d4d038bdbe8e17:0xfa8236dff6de35fe!8m2!3d50.4850825!4d30.6075711">
+                    <span class="jQtooltip" title="Нажмите, чтобы посмотреть расположениие на карте">
+                        <div class="map">   
+                        </div>
+                    </span>
+                </a>
+                <div class="contacts">
+                    <div class="phone">
+                        <p><i class="fa fa-phone" aria-hidden="true"></i>   073 959 18 81</p>
+                        <p><i class="fa fa-phone" aria-hidden="true"></i>   068 959 18 81</p>
+                    </div>
+                    <div class="time"> 
+                        <p>Понедельник - Воскресенье</p>
+                        <p><i class="fa fa-clock-o" aria-hidden="true"></i>   10:00 - 20:00</p>
+                    </div>
+                </div>
+            </div>
+            <div class="social">
+                <p>
+                    <a href="mailto:Mirra826@gmail.com"><i class="fa fa-envelope-o" aria-hidden="true"></i>   Mirra826@gmail.com</a>
+                </p>
+                <div>
+                    <a href="https://www.instagram.com/malinabeauty28/" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                </div>
+                <div>
+                    <a href="https://www.facebook.com/malinabeauty28/" target="_blank"><i class="fa fa-facebook-official" aria-hidden="true"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src='https://code.jquery.com/jquery-3.1.0.min.js'></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.6.6/jquery.fullPage.min.js"></script>
+    <script type="text/javascript" src="{% static 'basic/jquery.slimscroll.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'basic/swipe.min.js' %}"></script>
+    <script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js'></script>
+    <script type="text/javascript" src="{% static 'basic/script.js' %}"></script>
+    <script type="text/javascript" src="{% static 'basic/for_main.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    {% load staticfiles %}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel='stylesheet' type='text/css' href="{% static 'basic/style.css' %}">
+    <title>Акции</title> 
+</head>
+<body>
+
+    {% if promotions%}
+        {% for promotion in promotions %}
+            <div class="promotion">
+                <p>{{ promotion.name }}</p>
+                <p>{{ promotion.description }}</p>
+                <ul>
+                    {% for advantage in promotion.list_of_advantages %}
+                        <li><i class="fa fa-cog fa-spin fa-1x fa-fw"></i>   {{ advantage }}</li>
+                    {% endfor %}
+                </ul>
+                <p>{{promotion.last_words}}</p>
+                <p>Акция проходит с <span>{{ promotion.date_start }}</span> по <span>{{ promotion.date_end }}</span></p>
+            </div>
+            {% endfor %}
+        {% else %}
+            <div class="no-promo">
+                <p>К сожалению, на данный момент акций нет, но Ваш кофе уже стынет:)</p>
+                <div class="coffee">
+                    <i class="fa fa-coffee" aria-hidden="true"></i>
+                </div>
+            </div>
+        {% endif %}
+        <div class="wrap">
+            <a href="{% url 'basic:main_page' %}">
+                <div class="buttons centring">
+                    Главная
+                </div>
+            </a>
+        </div>
+
+
+
+    <script src='https://code.jquery.com/jquery-3.1.0.min.js'></script>
+    <script src="{% static 'basic/script.js' %}"></script>
+
+</body>
+</html>

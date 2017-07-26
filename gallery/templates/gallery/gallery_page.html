@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    {% load staticfiles %}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel='stylesheet' type='text/css' href="{% static 'basic/style.css' %}">
+    <title>Галерея</title>  
+</head>
+<body>
+    <div class="level">
+        <div class="block">
+            <a href="{% url 'gallery:coloring' %}"></a> 
+            <div class="img1">
+                Окрашивание волос
+            </div>  
+        </div>
+        <div class="block">
+            <a href="{% url 'gallery:woman_hairstyle' %}"></a>
+            <div class="img2">
+                Укладки и прически
+            </div>   
+        </div>
+        <div class="block">
+            <a href="{% url 'gallery:man_hairstyle' %}"></a>
+            <div class="img3">
+                Мужские стрижки
+            </div>   
+        </div>
+        <div class="block">
+            <a href="{% url 'gallery:nails' %}"></a>
+            <div class="img4">
+                Маникюр
+            </div>
+        </div>
+        <div class="block">
+            <a href="{% url 'gallery:eyelashes' %}"></a>
+            <div class="img5">
+                Коррекция бровей
+            </div>
+        </div>
+        <div class="block">
+            <a href="{% url 'gallery:eyebrows' %}"></a>
+            <div class="img6">
+                Наращивание ресниц
+            </div> 
+        </div>
+        <div class="block block-big">            
+            <a href="{% url 'gallery:atmosphere' %}"></a>
+            <div class="img7">
+                Рабочая обстановка
+            </div>                 
+        </div>
+        <div class="block">                
+            <a href="{% url 'basic:main_page' %}"></a>
+            <div>
+                Главная
+            </div> 
+        </div>
+    </div>
+
+    <script src='https://code.jquery.com/jquery-3.1.0.min.js'></script>
+    <script src="{% static 'basic/script.js' %}"></script>
+
+</body>
+</html>

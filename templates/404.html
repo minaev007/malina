@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    {% load staticfiles %}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel='stylesheet' type='text/css' href="{% static 'basic/style.css' %}">
+    <title>404</title>
+</head>
+<body>
+    <div class="for-404"> 
+        <p>404</p>
+        <img class="trump" src="{% static 'basic/trump.svg' %}" />
+        <p>Страница не найдена</p>
+    </div> 
+
+    <div class="wrap"> 
+        <a href="{% url 'basic:main_page' %}">
+            <div class="buttons">
+                Назад на главную
+            </div>
+        </a>
+    </div>
+    <script type="text/javascript" src='https://code.jquery.com/jquery-3.1.0.min.js'></script>
+    <script type="text/javascript"type="text/javascript" src="{% static 'basic/script.js' %}"></script>
+</body>
+</html>

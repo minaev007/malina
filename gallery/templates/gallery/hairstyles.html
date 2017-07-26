@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    {% load staticfiles %}
+    <link rel='stylesheet' type='text/css' href="{% static 'basic/style.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <title>Галерея</title>
+</head>
+<body>
+
+    {% if photos %}
+    <div class="container">
+		<section id="dg-container" class="dg-container">
+			<div class="dg-wrapper">
+                {% for photo in photos %}
+                <a target="_blank" href="{% url 'gallery:detail_photo' photo.id %}"><img class="gallery-photo" src="{% static photo.path %}" alt="image01"></a>
+                {% endfor %}
+            </div>
+            <br />
+            <br />
+            <br />
+            <br />
+            <nav>
+                <span class="dg-prev"><i class="fa fa-caret-left" aria-hidden="true"></i></span>
+                <span class="dg-next"><i class="fa fa-caret-right" aria-hidden="true"></i></span>
+            </nav>
+        </section>
+    </div>
+
+        {% else %}
+            <p class="no-photo">Фотографий пока нет</p>
+        {% endif%}
+
+    <div class="wrap"> 
+        <a href="{% url 'gallery:gallery_page' %}">
+            <div class="buttons">
+                Галерея
+            </div>
+        </a>
+    </div>
+
+    <div class="wrap"> 
+        <a href="{% url 'basic:main_page' %}">
+            <div class="buttons">
+                Главная
+            </div>
+        </a>
+    </div>
+
+    <script src='https://code.jquery.com/jquery-3.1.0.min.js'></script>
+    <script src="{% static 'basic/script.js' %}"></script>
+	<script type="text/javascript" src="{% static 'gallery/modernizr.custom.53451.js' %}"></script>
+    <script type="text/javascript" src="{% static 'gallery/jquery.gallery.js' %}"></script>
+    <script type="text/javascript" src="{% static 'basic/swipe.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'gallery/for_gallery.js' %}"></script>
+    <script type="text/javascript">
+        $(function() {
+            $('#dg-container').gallery();
+        });
+    </script/>
+
+</body>
+</html>
