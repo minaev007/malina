@@ -1,6 +1,6 @@
 function main() {
     checking = false;
-
+    console.log('HELLO GIT!');
     /* slider */
 
     var slideWidth=995;
