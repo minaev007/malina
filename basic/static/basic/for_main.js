@@ -128,7 +128,6 @@ function main() {
                     $('.my-slide img').removeClass('my-slide-img-small');                    
                     $('.my-slide img').addClass('my-slide-img-big');                                    
                 }
-                console.log(slideWidth);
             },
             mql = window.matchMedia('all and (max-width: 1020px)');
         handleMatchMedia(mql);
