@@ -31,6 +31,7 @@ def create_review(request):
         return render(request, 'reviews/reviews_page.html', {'errors': errors, 'reviews':reviews})
     new_review = Review(name=request.POST['name'], the_review=request.POST['the_review'], date=timezone.now())
     new_review.save()
+    '''
     send_mail(
         'Появился новый отзыв!',
         the_review,
@@ -38,6 +39,7 @@ def create_review(request):
         ['Mirra826@gmail.com', 'Ali.rohta@gmail.com', 'yurij.zusik@gmail.com'],
         fail_silently=False
     )
+    '''
     return HttpResponseRedirect(reverse('reviews:thanks'))
 
 def thanks(request):
