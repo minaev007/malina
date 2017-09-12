@@ -1,3 +1,4 @@
 # files to ignore
 
 malina/settings.py
+*.pyc
