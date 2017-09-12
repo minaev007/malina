@@ -29,6 +29,7 @@ def create_review(request):
          errors.append('Использование данного имени невозможно')
     if errors:
         return render(request, 'reviews/reviews_page.html', {'errors': errors, 'reviews':reviews})
+    # server error 500
     new_review = Review(name=request.POST['name'], the_review=request.POST['the_review'], date=timezone.now())
     new_review.save()
     '''
