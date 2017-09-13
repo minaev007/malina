@@ -1,6 +1,5 @@
 function main() {
     checking = false;
-    console.log('HELLO GIT!');
     /* slider */
 
     var slideWidth=995;
@@ -11,29 +10,32 @@ function main() {
     $(function(){
 
         $('.my-slidewrapper').width(sliderChildLength*slideWidth);
-        sliderTimer=setInterval(debNext,3000);
+        sliderTimer=setInterval(debNext,5000);
         $('.my-viewport').hover(function(){
             clearInterval(sliderTimer);
         },function(){
-            sliderTimer=setInterval(debNext,3000);
+            sliderTimer=setInterval(debNext,5000);
         }
     );
 
         $(window).keyup(function(key) {
-            window.checking = true;
-            switch(parseInt(key.which,10)) {
-            // Left arrow key pressed
-            case 37:
-                clearInterval(sliderTimer);
-                sliderTimer=setInterval(debNext,3000);
-                debPast();
-                break;
-            // Right Arrow Pressed
-            case 39:
-                clearInterval(sliderTimer);
-                sliderTimer=setInterval(debNext,3000);
-                debNext();
-                break;
+            if ($('.my-viewport').is(':hover')) {
+            } else {
+                window.checking = true;
+                switch(parseInt(key.which,10)) {
+                // Left arrow key pressed
+                case 37:
+                    clearInterval(sliderTimer);
+                    sliderTimer=setInterval(debNext,5000);
+                    debPast();
+                    break;
+                // Right Arrow Pressed
+                case 39:
+                    clearInterval(sliderTimer);
+                    sliderTimer=setInterval(debNext,5000);
+                    debNext();
+                    break;
+            }
         }
     });
     
@@ -46,13 +48,13 @@ function main() {
         window.checking = true;
         clearInterval(sliderTimer);
         debNext();
-        sliderTimer=setInterval(debNext,3000);
+        sliderTimer=setInterval(debNext,5000);
     }
     function rightSwipe(event){
         window.checking = true;
         clearInterval(sliderTimer);
         debPast();
-        sliderTimer=setInterval(debNext,3000);
+        sliderTimer=setInterval(debNext,5000);
     }
 
 });
@@ -64,9 +66,9 @@ function main() {
             currentSlide=0;   
         }
         if (checking) {
-        $('.my-slidewrapper').animate({left: -currentSlide*slideWidth},300).data('current',currentSlide);
+            $('.my-slidewrapper').animate({left: -currentSlide*slideWidth}, 300, "easeOutCirc").data('current',currentSlide);
         } else {
-        $('.my-slidewrapper').animate({left: -currentSlide*slideWidth},800).data('current',currentSlide);
+            $('.my-slidewrapper').animate({left: -currentSlide*slideWidth}, 1000, "easeOutCirc").data('current',currentSlide);
         }
         window.checking = false;
     }, 300);
@@ -79,9 +81,9 @@ function main() {
             currentSlide=3;   
         }
         if (checking) {
-        $('.my-slidewrapper').animate({left: -currentSlide*slideWidth},300).data('current',currentSlide);
+            $('.my-slidewrapper').animate({left: -currentSlide*slideWidth},300, "easeOutCirc").data('current',currentSlide);
         } else {
-        $('.my-slidewrapper').animate({left: -currentSlide*slideWidth},800).data('current',currentSlide);            
+            $('.my-slidewrapper').animate({left: -currentSlide*slideWidth},1000, "easeOutCirc").data('current',currentSlide);            
         }
         window.checking = false;
     }, 300);
