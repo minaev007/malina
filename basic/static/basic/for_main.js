@@ -66,7 +66,7 @@ function main() {
             currentSlide=0;   
         }
         if (checking) {
-            $('.my-slidewrapper').animate({left: -currentSlide*slideWidth}, 300, "easeOutCirc").data('current',currentSlide);
+            $('.my-slidewrapper').animate({left: -currentSlide*slideWidth}, 300, $.bez([1, -0, .47, 1])).data('current',currentSlide);
         } else {
             $('.my-slidewrapper').animate({left: -currentSlide*slideWidth}, 1000, $.bez([1, -0, .47, 1])).data('current',currentSlide);
         }
@@ -81,9 +81,9 @@ function main() {
             currentSlide=3;   
         }
         if (checking) {
-            $('.my-slidewrapper').animate({left: -currentSlide*slideWidth},300, "easeOutCirc").data('current',currentSlide);
+            $('.my-slidewrapper').animate({left: -currentSlide*slideWidth},300, $.bez([1, -0, .47, 1])).data('current',currentSlide);
         } else {
-            $('.my-slidewrapper').animate({left: -currentSlide*slideWidth},1000, "easeOutCirc").data('current',currentSlide);            
+            $('.my-slidewrapper').animate({left: -currentSlide*slideWidth},1000, $.bez([1, -0, .47, 1])).data('current',currentSlide);            
         }
         window.checking = false;
     }, 300);
@@ -137,6 +137,7 @@ function main() {
     }
 };
 /* bezier */
+
 (function(factory) {
     if (typeof exports === "object") {
       factory(require("jquery"));
@@ -181,6 +182,5 @@ function main() {
                 return encodedFuncName;
                }});
              }));
-
 
 $(document).ready(main);

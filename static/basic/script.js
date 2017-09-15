@@ -30,6 +30,8 @@ function main() {
     });
 
     var firefox = navigator.userAgent.search(/Firefox/) > -1;
+    if (firefox)
+        $('.logos').css('height', '220px');
     $('input[type="text"], textarea, input[type="submit"]').focus(function(){
         if (firefox)
             $(this).css('outline-style', 'solid');
